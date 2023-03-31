@@ -40,7 +40,7 @@ class Gallery2 extends Component {
           {this.state.error && !this.state.isLoading && (
             <Alert variant="danger">{this.state.errorMsg ? this.state.errorMsg : "Errore nel trovare i film"}</Alert>
           )}
-          {this.state.film.slice(0, 6).map(movie => (
+          {this.state.film.slice(0, 5).map(movie => (
             <Col key={movie.imdbID} xs={6} md={2} className="mb-4">
               <Card
                 className="border-0"
