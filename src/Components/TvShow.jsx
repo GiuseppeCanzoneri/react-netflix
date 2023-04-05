@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
-import { Alert, Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Alert, Button, Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-const Gallery2 = props => {
-  const [film, SetFilm] = useState([]);
-  const [error, SetError] = useState(false);
-  const [isLoading, SetIsLoading] = useState(true);
+const TvShow = props => {
+  const [film, setFilm] = useState([]);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchFilm = async () => {
     try {
-      const response = await fetch("http://www.omdbapi.com/?apikey=650ba364&s=avengers");
+      const response = await fetch("http://www.omdbapi.com/?apikey=650ba364&s=hulk");
 
       if (response.ok) {
         const data = await response.json();
-        SetFilm(data.Search);
-        SetIsLoading(false);
+        setFilm(data.Search);
+        setIsLoading(false);
       } else {
-        SetError(true);
-        SetIsLoading(false);
+        setError(true);
+        setIsLoading(false);
       }
     } catch (error) {
-      SetError(true);
-      SetIsLoading(false);
+      setError(true);
+      setIsLoading(false);
     }
   };
 
@@ -31,7 +32,7 @@ const Gallery2 = props => {
 
   return (
     <Container fluid className="mt-3">
-      <h3 className="fw-bold fs-5 text-white">Watch it Again</h3>
+      <h3 className="fw-bold fs-5 text-white">HULK</h3>
       {isLoading && !error && (
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Wait..</span>
@@ -39,10 +40,15 @@ const Gallery2 = props => {
       )}
       <Row className="mt-3">
         {error && !isLoading && <Alert variant="danger">{error ? error : "Errore nel trovare i film"}</Alert>}
+
         {film.map(movie => (
           <Col key={movie.imdbID} xs={6} md={2} className="mb-4">
             <Card className="border-0 h-100">
               <Card.Img variant="top" src={movie.Poster} className="h-100" />
+              <Link to={`/MovieDetails/` + film.imbdD}></Link>{" "}
+              <Button variant="success" className="">
+                More Details
+              </Button>{" "}
             </Card>
           </Col>
         ))}
@@ -51,4 +57,4 @@ const Gallery2 = props => {
   );
 };
 
-export default Gallery2;
+export default TvShow;

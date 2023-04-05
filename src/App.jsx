@@ -5,23 +5,24 @@ import Gallery from "./Components/Gallery";
 import MyFooter from "./Components/MyFooter";
 import Gallery2 from "./Components/Gallery2";
 import Gallery3 from "./Components/Gallery3";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TvShow from "./Components/TvShow";
+import MovieDetails from "./Components/MovieDetails";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <nav>
-          <MyNav />
-        </nav>
-      </header>
-      <main>
+      <BrowserRouter>
+        <MyNav />
         <Gallery />
         <Gallery2 />
         <Gallery3 />
-      </main>
-      <footer>
+        <Routes>
+          <Route path="tvshow" element={<TvShow />} />
+          <Route path="/MovieDetails/:movieId" element={<MovieDetails />} />
+        </Routes>
         <MyFooter />
-      </footer>
+      </BrowserRouter>
     </div>
   );
 }
