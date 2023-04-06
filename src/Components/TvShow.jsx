@@ -45,10 +45,11 @@ const TvShow = props => {
           <Col key={movie.imdbID} xs={6} md={2} className="mb-4">
             <Card className="border-0 h-100">
               <Card.Img variant="top" src={movie.Poster} className="h-100" />
-              <Link to={`/MovieDetails/` + film.imbdD}></Link>{" "}
-              <Button variant="success" className="">
-                More Details
-              </Button>{" "}
+              <Link to={`/MovieDetails/` + film.imbdD}>
+                <Button variant="success" className="">
+                  More Details
+                </Button>{" "}
+              </Link>
             </Card>
           </Col>
         ))}

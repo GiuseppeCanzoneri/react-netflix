@@ -19,7 +19,7 @@ function App() {
         <Gallery3 />
         <Routes>
           <Route path="tvshow" element={<TvShow />} />
-          <Route path="/MovieDetails/:movieId" element={<MovieDetails />} />
+          <Route path="/MovieDetails/:imdbID" element={<MovieDetails />} />
         </Routes>
         <MyFooter />
       </BrowserRouter>

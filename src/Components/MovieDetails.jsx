@@ -14,12 +14,12 @@ const MovieDetails = () => {
     fetchDetails();
     fetchComments();
   }, []);
-  const movieId = params.imdbId;
-  console.log(movieId);
+  const imdbID = params.imdbId;
+  console.log(imdbID);
 
   const fetchDetails = async () => {
     try {
-      const response = await fetch(`http://www.omdbapi.com/?apikey=650ba364&i=` + params.movieId);
+      const response = await fetch(`http://www.omdbapi.com/?apikey=650ba364&i=` + params.imdbID);
       if (response.ok) {
         const data = await response.json();
         setMovieDetails(data);
@@ -34,7 +34,7 @@ const MovieDetails = () => {
 
   const fetchComments = async () => {
     try {
-      const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/` + params.movieID, {
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/comments/` + params.imdbID, {
         headers: {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDJkOWIxMGIxNGE1MTAwMTQ2NjNmZjQiLCJpYXQiOjE2ODA3MTA0MTYsImV4cCI6MTY4MTkyMDAxNn0.U6ZuNRkB7ifE_eL4_Kip99Mv3-9dwC5tWwvDxhOaQHM",
