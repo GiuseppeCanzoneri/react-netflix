@@ -14,10 +14,18 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <MyNav />
-        <Gallery />
-        <Gallery2 />
-        <Gallery3 />
         <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Gallery />
+                <Gallery2 />
+                <Gallery3 />{" "}
+              </>
+            }
+          />
+
           <Route path="tvshow" element={<TvShow />} />
           <Route path="/MovieDetails/:imdbID" element={<MovieDetails />} />
         </Routes>
