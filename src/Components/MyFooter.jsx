@@ -11,7 +11,7 @@ class MyFooter extends Component {
               <Col lg={4} className="mb-4 mb-lg-0">
                 <ListGroup horizontal className="justify-content-start">
                   <ListGroup.Item className="border-0 me-3">
-                    <a href="#" className="text-secondary text-decoration-none">
+                    <a href="#" className="text-secondary text-decoration-none" role="button">
                       Youtube
                     </a>
                   </ListGroup.Item>

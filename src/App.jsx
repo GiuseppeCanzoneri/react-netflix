@@ -1,13 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import MyNav from "./Components/MyNav";
-import Gallery from "./Components/Gallery";
 import MyFooter from "./Components/MyFooter";
-import Gallery2 from "./Components/Gallery2";
-import Gallery3 from "./Components/Gallery3";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import TvShow from "./Components/TvShow";
 import MovieDetails from "./Components/MovieDetails";
+import HomePage from "./Components/HomePage";
 
 function App() {
   return (
@@ -15,16 +13,7 @@ function App() {
       <BrowserRouter>
         <MyNav />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Gallery />
-                <Gallery2 />
-                <Gallery3 />{" "}
-              </>
-            }
-          />
+          <Route path="/" element={<HomePage />} />
 
           <Route path="tvshow" element={<TvShow />} />
           <Route path="/MovieDetails/:imdbID" element={<MovieDetails />} />

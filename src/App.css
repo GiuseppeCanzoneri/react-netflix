@@ -9,3 +9,34 @@
 .btn-square {
   border-radius: 0 !important;
 }
+
+/* Gallery.css */
+.horizontal-scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Optional, for smoother scrolling on iOS devices */
+  scrollbar-width: none; /* Optional, hide scrollbars in Firefox */
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none; /* Optional, hide scrollbars in Webkit browsers */
+}
+
+.horizontal-scroll-container > .mb-4 {
+  flex: 0 0 auto;
+}
+
+.horizontal-scroll-container .card {
+  margin: 0; /* Remove margin between cards */
+}
+
+.netflix-card {
+  width: 240px;
+  height: 360px;
+  border: none;
+  border-radius: 0;
+  margin-right: 10px;
+}

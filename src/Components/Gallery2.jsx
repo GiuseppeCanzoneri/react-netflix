@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Alert, Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Alert, Card, Col, Container, Spinner } from "react-bootstrap";
 
 const Gallery2 = props => {
   const [film, SetFilm] = useState([]);
@@ -30,24 +30,25 @@ const Gallery2 = props => {
   }, []);
 
   return (
-    <Container fluid className="mt-3">
-      <h3 className="fw-bold fs-5 text-white">Watch it Again</h3>
-      {isLoading && !error && (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Wait..</span>
-        </Spinner>
-      )}
-      <Row className="mt-3">
+    <>
+      <h3 className="fw-bold fs-5 text-white ms-3 mt-3 mb-3 fluid">Watch it Again</h3>
+      <Container fluid className="horizontal-scroll-container">
+        {isLoading && !error && (
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Wait..</span>
+          </Spinner>
+        )}
+
         {error && !isLoading && <Alert variant="danger">{error ? error : "Errore nel trovare i film"}</Alert>}
         {film.map(movie => (
           <Col key={movie.imdbID} xs={6} md={2} className="mb-4">
-            <Card className="border-0 h-100">
+            <Card className="netflix-card">
               <Card.Img variant="top" src={movie.Poster} className="h-100" />
             </Card>
           </Col>
         ))}
-      </Row>
-    </Container>
+      </Container>
+    </>
   );
 };
 
