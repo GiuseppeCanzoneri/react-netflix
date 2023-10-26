@@ -9,7 +9,7 @@ const TvShow = props => {
 
   const fetchFilm = async () => {
     try {
-      const response = await fetch("http://www.omdbapi.com/?apikey=650ba364&s=hulk");
+      const response = await fetch("http://www.omdbapi.com/?apikey=650ba364&s=elite");
 
       if (response.ok) {
         const data = await response.json();
@@ -32,7 +32,7 @@ const TvShow = props => {
 
   return (
     <Container fluid className="mt-3">
-      <h3 className="fw-bold fs-5 text-white">HULK</h3>
+      <h3 className="fw-bold fs-5 text-white">Serie/Film Popolari</h3>
       {isLoading && !error && (
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Wait..</span>
